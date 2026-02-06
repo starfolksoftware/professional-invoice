@@ -69,6 +69,7 @@ To use a custom domain with your GitHub Pages site:
 
 ### Step 1: Add CNAME file
 1. Create a `CNAME` file in the `public` folder containing your domain (e.g., `www.example.com` or `example.com`)
+   - For this Vite project, the `public` folder is correct as files here are copied to the build output
 2. Commit and push the changes
 
 ### Step 2: Configure DNS Records
@@ -101,7 +102,7 @@ Add a **CNAME record** pointing to your GitHub Pages domain:
 Example DNS configuration:
 | Type | Name | Value |
 |------|------|-------|
-| CNAME | www | your-username.github.io |
+| CNAME | www | <your-username>.github.io |
 
 **Note**: DNS changes can take up to 24 hours to propagate, but typically take effect within a few minutes to hours.
 
