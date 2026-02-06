@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Plus, UploadSimple } from '@phosphor-icons/react'
 import { LineItemRow } from './LineItemRow'
 import { createEmptyLineItem } from '@/lib/invoice-utils'
@@ -81,15 +82,23 @@ export function InvoiceEditor({ invoice, onUpdate }: InvoiceEditorProps) {
   return (
     <div className="space-y-6">
       <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Template Style</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <TemplateSelector
-            selectedTemplate={invoice.template || 'classic'}
-            onSelect={(template) => onUpdate({ template })}
-          />
-        </CardContent>
+        <Accordion type="single" collapsible defaultValue="template-style">
+          <AccordionItem value="template-style" className="border-0">
+            <CardHeader className="pb-0">
+              <AccordionTrigger className="hover:no-underline py-4">
+                <CardTitle className="text-lg">Template Style</CardTitle>
+              </AccordionTrigger>
+            </CardHeader>
+            <AccordionContent>
+              <CardContent className="pt-4">
+                <TemplateSelector
+                  selectedTemplate={invoice.template || 'classic'}
+                  onSelect={(template) => onUpdate({ template })}
+                />
+              </CardContent>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </Card>
 
       <Card>
