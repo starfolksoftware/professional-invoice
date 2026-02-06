@@ -42,19 +42,26 @@ function App() {
   const [invoices, setInvoices] = useKV<Invoice[]>('invoices', [])
   const [currentInvoiceId, setCurrentInvoiceId] = useState<string>('')
   const [isMobilePreviewOpen, setIsMobilePreviewOpen] = useState(false)
+  const [isInitialized, setIsInitialized] = useState(false)
 
   const safeInvoices = invoices || []
   const currentInvoice = safeInvoices.find(inv => inv.id === currentInvoiceId)
 
   useEffect(() => {
+    if (isInitialized) return
+
     if (safeInvoices.length === 0) {
       const newInvoice = createEmptyInvoice([])
       setInvoices([newInvoice])
       setCurrentInvoiceId(newInvoice.id)
-    } else if (!currentInvoiceId || !currentInvoice) {
+      setIsInitialized(true)
+    } else if (!currentInvoiceId) {
       setCurrentInvoiceId(safeInvoices[0].id)
+      setIsInitialized(true)
+    } else {
+      setIsInitialized(true)
     }
-  }, [])
+  }, [safeInvoices, currentInvoiceId, isInitialized, setInvoices])
 
   const handleCreateNew = () => {
     setInvoices((current) => {
@@ -132,11 +139,12 @@ function App() {
     printInvoice()
   }
 
-  if (!currentInvoice) {
+  if (!isInitialized || !currentInvoice) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-muted/30">
         <div className="text-center">
-          <p className="text-muted-foreground mb-4">Loading...</p>
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent mb-4"></div>
+          <p className="text-muted-foreground">Loading invoice...</p>
         </div>
       </div>
     )
