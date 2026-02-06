@@ -42,26 +42,19 @@ function App() {
   const [invoices, setInvoices] = useKV<Invoice[]>('invoices', [])
   const [currentInvoiceId, setCurrentInvoiceId] = useState<string>('')
   const [isMobilePreviewOpen, setIsMobilePreviewOpen] = useState(false)
-  const [isInitialized, setIsInitialized] = useState(false)
 
   const safeInvoices = invoices || []
   const currentInvoice = safeInvoices.find(inv => inv.id === currentInvoiceId)
 
   useEffect(() => {
-    if (isInitialized) return
-
     if (safeInvoices.length === 0) {
       const newInvoice = createEmptyInvoice([])
       setInvoices([newInvoice])
       setCurrentInvoiceId(newInvoice.id)
-      setIsInitialized(true)
     } else if (!currentInvoiceId) {
       setCurrentInvoiceId(safeInvoices[0].id)
-      setIsInitialized(true)
-    } else {
-      setIsInitialized(true)
     }
-  }, [safeInvoices, currentInvoiceId, isInitialized, setInvoices])
+  }, [safeInvoices.length, currentInvoiceId, setInvoices])
 
   const handleCreateNew = () => {
     setInvoices((current) => {
@@ -139,7 +132,7 @@ function App() {
     printInvoice()
   }
 
-  if (!isInitialized || !currentInvoice) {
+  if (!currentInvoice) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-muted/30">
         <div className="text-center">
