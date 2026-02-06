@@ -104,7 +104,7 @@ Example DNS configuration:
 |------|------|-------|
 | CNAME | www | <your-username>.github.io |
 
-**Note**: DNS changes can take up to 24 hours to propagate, but typically take effect within a few minutes to hours.
+**Note**: DNS changes can take up to 24 hours to propagate, but typically take effect within 15 minutes to 4 hours.
 
 ### Step 3: Configure in GitHub Pages Settings
 1. Go to your repository Settings
