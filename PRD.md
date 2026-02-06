@@ -34,11 +34,11 @@ This is a single-purpose tool with multiple interconnected features (CRUD operat
 - **Success criteria**: All calculations accurate to 2 decimals, updates happen instantly, supports multiple items without performance degradation
 
 ### Multi-Currency Support
-- **Functionality**: Select from major world currencies with proper symbol display
-- **Purpose**: International business capability
+- **Functionality**: Select from major world currencies including African currencies (Nigerian Naira, South African Rand, Kenyan Shilling, Ghanaian Cedi, Egyptian Pound, and more) with proper symbol display
+- **Purpose**: International business capability with strong support for African markets
 - **Trigger**: Currency dropdown in invoice header
 - **Progression**: Open currency selector → Choose from list → All amounts display with correct symbol → Currency saves with invoice
-- **Success criteria**: Symbols display correctly, formatting matches currency conventions, currency persists per invoice
+- **Success criteria**: Symbols display correctly, formatting matches currency conventions, currency persists per invoice, all African currency symbols render properly (₦, R, KSh, GH₵, E£, etc.)
 
 ### Invoice Numbering & Dating
 - **Functionality**: Auto-generated sequential invoice numbers with manual override, issue date and due date pickers
