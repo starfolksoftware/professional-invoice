@@ -54,7 +54,7 @@ function App() {
     } else if (!currentInvoiceId) {
       setCurrentInvoiceId(safeInvoices[0].id)
     }
-  }, [safeInvoices.length, currentInvoiceId, setInvoices])
+  }, [])
 
   const handleCreateNew = () => {
     setInvoices((current) => {
@@ -249,6 +249,22 @@ function App() {
             currencySymbol={currencySymbol}
           />
         </div>
+
+        <footer className="bg-background border-t border-border py-6 mt-12 no-print">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-sm text-muted-foreground">
+              Created by{' '}
+              <a 
+                href="https://starfolksoftware.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                Starfolk Software Technology Limited
+              </a>
+            </p>
+          </div>
+        </footer>
       </div>
       <Toaster />
     </>
