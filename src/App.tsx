@@ -54,7 +54,7 @@ function App() {
     } else if (!currentInvoiceId && safeInvoices.length > 0) {
       setCurrentInvoiceId(safeInvoices[0].id)
     }
-  }, [safeInvoices.length, currentInvoiceId, setInvoices])
+  }, [safeInvoices.length, currentInvoiceId])
 
   const handleCreateNew = () => {
     setInvoices((current) => {
