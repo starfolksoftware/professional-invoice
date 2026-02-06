@@ -1,23 +1,82 @@
-# ✨ Welcome to Your Spark Template!
-You've just launched your brand-new Spark Template Codespace — everything’s fired up and ready for you to explore, build, and create with Spark!
+# Invoice Generator
 
-This template is your blank canvas. It comes with a minimal setup to help you get started quickly with Spark development.
+A modern, responsive invoice generator web application built with React, TypeScript, and Tailwind CSS.
 
-🚀 What's Inside?
-- A clean, minimal Spark environment
-- Pre-configured for local development
-- Ready to scale with your ideas
-  
-🧠 What Can You Do?
+## Features
 
-Right now, this is just a starting point — the perfect place to begin building and testing your Spark applications.
+- **Create & Manage Invoices**: Create, edit, duplicate, and delete invoices
+- **Business & Client Details**: Input comprehensive business and client information
+- **Line Items**: Add multiple line items with descriptions, quantities, prices, tax, and discounts
+- **Multi-Currency Support**: Supports USD, EUR, GBP, NGN, and other African currencies
+- **Professional Templates**: Choose from multiple invoice templates
+- **PDF Export**: Download invoices as PDF and print-ready formats
+- **Local Storage**: All data persists locally in your browser
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
-🧹 Just Exploring?
-No problem! If you were just checking things out and don’t need to keep this code:
+## GitHub Pages Deployment
 
-- Simply delete your Spark.
-- Everything will be cleaned up — no traces left behind.
+This project is optimized for GitHub Pages deployment.
 
-📄 License For Spark Template Resources 
+### Setup Instructions
 
-The Spark Template files and resources from GitHub are licensed under the terms of the MIT license, Copyright GitHub, Inc.
+1. **Enable GitHub Pages in your repository**:
+   - Go to Settings > Pages
+   - Under "Build and deployment", select "GitHub Actions" as the source
+
+2. **Update the base path**:
+   - Open `vite.config.ts`
+   - Change the base path from `/spark-template/` to `/<your-repo-name>/`
+   ```typescript
+   base: process.env.GITHUB_PAGES === 'true' ? '/<your-repo-name>/' : '/',
+   ```
+
+3. **Deploy**:
+   - Push to the `main` branch
+   - The GitHub Actions workflow will automatically build and deploy your app
+   - Your app will be available at `https://<your-username>.github.io/<your-repo-name>/`
+
+### Manual Deployment
+
+You can also build and deploy manually:
+
+```bash
+# Build for GitHub Pages
+npm run build:gh-pages
+
+# Or use the deploy script
+npm run deploy
+```
+
+## Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Tech Stack
+
+- **React 19** with TypeScript
+- **Vite** for fast builds and development
+- **Tailwind CSS** for styling
+- **Shadcn UI** components
+- **Radix UI** primitives
+- **Framer Motion** for animations
+- **Phosphor Icons** for iconography
+
+## Browser Support
+
+Works on all modern browsers with localStorage support.
+
+## License
+
+MIT License - Copyright GitHub, Inc.

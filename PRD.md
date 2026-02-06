@@ -209,3 +209,11 @@ Animations should reinforce the sense of precision and responsiveness, using sub
 - Bottom sheet for currency/template selectors on mobile
 - Sticky header with primary actions remains accessible during scroll
 - Form fields full-width on mobile with consistent 16px horizontal padding
+
+## Deployment
+
+The application is optimized for GitHub Pages deployment with:
+- Automatic GitHub Actions workflow for CI/CD
+- Configurable base path for repository hosting
+- Optimized build output with code splitting
+- Manual deployment scripts available
