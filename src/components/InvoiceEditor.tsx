@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Plus, UploadSimple } from '@phosphor-icons/react'
 import { LineItemRow } from './LineItemRow'
 import { createEmptyLineItem } from '@/lib/invoice-utils'
-import { Separator } from '@/components/ui/separator'
+import { TemplateSelector } from './TemplateSelector'
 
 interface InvoiceEditorProps {
   invoice: Invoice
@@ -80,6 +80,18 @@ export function InvoiceEditor({ invoice, onUpdate }: InvoiceEditorProps) {
 
   return (
     <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg">Template Style</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <TemplateSelector
+            selectedTemplate={invoice.template || 'classic'}
+            onSelect={(template) => onUpdate({ template })}
+          />
+        </CardContent>
+      </Card>
+
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">Invoice Details</CardTitle>

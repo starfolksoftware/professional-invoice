@@ -18,6 +18,7 @@ function createEmptyInvoice(existingInvoices: Invoice[]): Invoice {
     issueDate: getTodayDate(),
     dueDate: getDefaultDueDate(),
     currency: 'USD',
+    template: 'classic',
     business: {
       name: '',
       address: '',

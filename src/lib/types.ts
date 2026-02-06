@@ -22,6 +22,8 @@ export interface ClientDetails {
   phone: string
 }
 
+export type InvoiceTemplate = 'classic' | 'modern' | 'minimal' | 'bold' | 'elegant'
+
 export interface Invoice {
   id: string
   invoiceNumber: string
@@ -33,6 +35,7 @@ export interface Invoice {
   lineItems: InvoiceLineItem[]
   notes?: string
   status: 'draft' | 'finalized'
+  template: InvoiceTemplate
   createdAt: string
   updatedAt: string
 }

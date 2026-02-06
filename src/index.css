@@ -72,10 +72,15 @@
   --radius-full: 9999px;
   
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-serif: 'Crimson Pro', ui-serif, Georgia, serif;
 }
 
 .font-mono {
   font-family: var(--font-mono);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
 }
 
 @media print {

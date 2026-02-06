@@ -48,11 +48,24 @@ This is a single-purpose tool with multiple interconnected features (CRUD operat
 - **Success criteria**: No duplicate numbers, dates validate properly, sequence continues across sessions
 
 ### Real-Time Invoice Preview
-- **Functionality**: Live-updating professional invoice document displayed alongside edit form
-- **Purpose**: Immediate visual feedback and WYSIWYG editing experience
+- **Functionality**: Live-updating professional invoice document displayed alongside edit form with multiple template styles
+- **Purpose**: Immediate visual feedback and WYSIWYG editing experience with customizable layouts
 - **Trigger**: Continuous during editing
-- **Progression**: User types in field → Preview updates instantly → Format maintains professional appearance → Layout adjusts responsively
-- **Success criteria**: Preview updates within 100ms, matches PDF output exactly, remains readable at all screen sizes
+- **Progression**: User types in field → Preview updates instantly → Format maintains professional appearance → User selects template → Layout transforms → Preview reflects new style
+- **Success criteria**: Preview updates within 100ms, matches PDF output exactly, remains readable at all screen sizes, template switching is instant
+
+### Multiple Professional Templates
+- **Functionality**: Five distinct invoice templates with different visual styles and layouts
+- **Purpose**: Customizable professional appearance to match different business identities and preferences
+- **Trigger**: Template selector in invoice editor
+- **Progression**: Open template selector → Preview thumbnails of styles → Click preferred template → Invoice preview transforms → Template saves with invoice → PDF exports use selected template
+- **Success criteria**: All templates maintain professional quality, support all invoice features (logo, line items, notes), export correctly to PDF, switching is instant
+- **Templates Available**:
+  - **Classic**: Traditional professional layout with striped rows and standard formatting
+  - **Modern**: Contemporary design with gradient header and card-based sections
+  - **Minimal**: Clean sophisticated layout with generous spacing and light typography
+  - **Bold**: High contrast statement design with strong borders and impactful styling
+  - **Elegant**: Refined serif-based design with subtle gradients and sophisticated details
 
 ### PDF Export & Print
 - **Functionality**: Generate downloadable PDF and print-optimized view
@@ -107,6 +120,7 @@ Typography should communicate professionalism and precision—the qualities esse
 
 - **Primary Typeface**: Inter (Display and UI) - Modern, highly legible sans-serif with excellent number rendering
 - **Secondary Typeface**: JetBrains Mono (Invoice numbers and amounts) - Monospace for precise alignment of numerical data
+- **Accent Typeface**: Crimson Pro (Elegant template) - Classic serif for sophisticated, formal invoice presentations
 
 **Typographic Hierarchy**:
 - H1 (Page Title): Inter SemiBold / 32px / -0.02em letter spacing / 1.2 line height
@@ -137,10 +151,10 @@ Animations should reinforce the sense of precision and responsiveness, using sub
 ## Component Selection
 
 **Components**:
-- **Card**: Primary container for invoice editor and preview, using subtle shadows for depth
+- **Card**: Primary container for invoice editor, preview, and template selector, using subtle shadows for depth
 - **Input/Textarea**: All text entry fields with clear labels, focus states with blue ring, error states with red borders
 - **Button**: Primary (filled blue), Secondary (outlined slate), Ghost (text-only for tertiary actions)
-- **Select**: Currency chooser, template selector with custom dropdown styling
+- **Select**: Currency chooser with custom dropdown styling
 - **Dialog**: Confirmation modals for delete actions and unsaved changes warnings
 - **Popover**: Date pickers for issue/due dates, positioned intelligently near trigger
 - **Table**: Line items display with alternating row backgrounds for scanability
@@ -149,6 +163,7 @@ Animations should reinforce the sense of precision and responsiveness, using sub
 - **ScrollArea**: Invoice list sidebar for when users have many saved invoices
 - **Avatar**: Fallback display when no business logo uploaded
 - **Skeleton**: Loading states during PDF generation and initial data load
+- **Template Selector**: Custom grid of template preview cards with visual thumbnails and selection state
 
 **Customizations**:
 - Custom file upload component with drag-and-drop for logo with preview thumbnail
@@ -175,6 +190,7 @@ Animations should reinforce the sense of precision and responsiveness, using sub
 - Client: `User` for client information
 - Business: `Buildings` for business details
 - Calculate: `Calculator` for totals section
+- Template Check: `Check` for selected template indicator
 
 **Spacing**:
 - Container padding: p-6 (24px) for main content areas
