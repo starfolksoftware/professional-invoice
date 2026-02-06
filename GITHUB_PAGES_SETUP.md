@@ -68,6 +68,7 @@ The `dist/` folder containing:
 **Blank page?** → Check base path matches repo name exactly
 **404 on refresh?** → Verify 404.html is deployed and SPA fallback works
 **Assets not loading?** → Ensure base path has leading/trailing slashes
+**Custom domain not working?** → See [DEPLOY.md](./DEPLOY.md) for DNS configuration (A records for apex domains, CNAME for subdomains)
 
 ## 📚 Documentation
 

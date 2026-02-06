@@ -65,10 +65,59 @@ npm run preview
 
 ## Custom Domain
 
-To use a custom domain:
-1. Add a `CNAME` file to the `public` folder with your domain
-2. Configure DNS settings with your domain provider
-3. Update GitHub Pages settings to use your custom domain
+To use a custom domain with your GitHub Pages site:
+
+### Step 1: Add CNAME file
+1. Create a `CNAME` file in the `public` folder containing your domain (e.g., `www.example.com` or `example.com`)
+   - For this Vite project, the `public` folder is correct as files here are copied to the build output
+2. Commit and push the changes
+
+### Step 2: Configure DNS Records
+
+**Yes, you MUST configure DNS records with your domain provider.**
+
+#### For Apex Domains (example.com)
+Add **A records** pointing to GitHub's IP addresses:
+```
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+```
+
+Example DNS configuration:
+| Type | Name | Value |
+|------|------|-------|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+
+#### For Subdomains (www.example.com or docs.example.com)
+Add a **CNAME record** pointing to your GitHub Pages domain:
+```
+<your-username>.github.io
+```
+
+Example DNS configuration:
+| Type | Name | Value |
+|------|------|-------|
+| CNAME | www | <your-username>.github.io |
+
+**Note**: DNS changes can take up to 24 hours to propagate, but typically take effect within 15 minutes to 4 hours.
+
+### Step 3: Configure in GitHub Pages Settings
+1. Go to your repository Settings
+2. Navigate to "Pages" in the sidebar
+3. Under "Custom domain", enter your domain (e.g., `www.example.com`)
+4. Click "Save"
+5. Wait for the DNS check to complete (a green checkmark will appear)
+6. Enable "Enforce HTTPS" (recommended, available after DNS verification)
+
+### Troubleshooting Custom Domains
+- **DNS check failing?** Verify your DNS records are correct using `dig` or `nslookup`
+- **Certificate errors?** Wait a few minutes for HTTPS certificate provisioning
+- **Site not loading?** Ensure the `CNAME` file is in the `public` folder and deployed
 
 ## Environment Variables
 
